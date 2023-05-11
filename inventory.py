@@ -30,7 +30,7 @@ def read_items(item_name: str):
 
 
 @app.put("/item/{item_name}")
-def update_student(item_name: str, item: Items):
+def update_items(item_name: str, item: Items):
     for index, existing_item in enumerate(inventory):
         if existing_item.name == item_name:
             inventory[index] = item
@@ -39,8 +39,8 @@ def update_student(item_name: str, item: Items):
 
 
 @app.delete("/deleteItemsByName/{item_name}")
-def delete_student(item_name: str):
-    for index, student in enumerate(inventory):
+def delete_items(item_name: str):
+    for index, item in enumerate(inventory):
         if item.name == item_name:
             inventory.pop(index)
             return {"message": "Items deleted successfully"}
